@@ -1,0 +1,41 @@
+ext {
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    appVersionCode =  1
+    appVersionName = "1.0.0"
+    applicationId =  "com.bit.contactsearchtestproject"
+
+
+    // Versions
+    supportVersion = '28.0.0'
+    rxJavaVersion = '2.2.9'
+    rxAndroidVersion = '2.1.1'
+
+
+    // Packages
+    supportPackage = 'com.android.support'
+    rxjavaPackage = 'io.reactivex.rxjava2'
+
+
+    // Dependencies
+
+
+    supportDependencies = [
+            appCompat   : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            design      : buildDependency(supportPackage, 'design', supportVersion),
+            recyclerview: buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+    ]
+
+    rxJavaDependencies = [
+            rxAndroid: buildDependency(rxjavaPackage, 'rxandroid', rxAndroidVersion),
+            rxJava   : buildDependency(rxjavaPackage, 'rxjava', rxJavaVersion)
+    ]
+
+}
+
+
+static String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}
+
