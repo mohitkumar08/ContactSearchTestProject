@@ -10,6 +10,7 @@ import com.bit.contactsearchtestproject.BaseApplication;
 import com.bit.contactsearchtestproject.repo.local.database.AppDatabase;
 import com.bit.contactsearchtestproject.repo.local.database.ContactDao;
 import com.bit.contactsearchtestproject.repo.local.database.model.Account;
+import com.bit.contactsearchtestproject.repo.local.database.model.SearchRecordData;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MainViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<String>> listAccountsData = new MutableLiveData();
-    private MutableLiveData<Account> accountsSearchResultData = new MutableLiveData();
+    private MutableLiveData<SearchRecordData> accountsSearchResultData = new MutableLiveData();
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private AppDatabase appDatabase;
     private ContactDao contactDao;
@@ -59,11 +60,37 @@ public class MainViewModel extends AndroidViewModel {
     }
 
 
-    void searchContact(String contactId){
+    void searchContact(String contactId) {
+
+        contactDao.getSearchResult(contactId).subscribeOn(Schedulers.io()).subscribe(new MaybeObserver<SearchRecordData>() {
+            @Override
+            public void onSubscribe(final Disposable d) {
+                compositeDisposable.add(d);
+            }
+
+            @Override
+            public void onSuccess(final SearchRecordData searchRecordData) {
+                accountsSearchResultData.postValue(searchRecordData);
+
+            }
+
+            @Override
+            public void onError(final Throwable e) {
+            }
+
+            @Override
+            public void onComplete() {
+                accountsSearchResultData.postValue(null);
+            }
+        });
 
     }
 
     public MutableLiveData<List<String>> getListAccountsData() {
         return listAccountsData;
+    }
+
+    public MutableLiveData<SearchRecordData> getSearchResultData() {
+        return accountsSearchResultData;
     }
 }

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fe1f809789af61e7866fb2b15154045e",
+    "identityHash": "5534e17ce2023b42df3b43d1b89c443b",
     "entities": [
       {
         "tableName": "Contact",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `ContactId` TEXT, `StagingId` TEXT, PRIMARY KEY(`_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `contactId` TEXT, `stagingId` TEXT, PRIMARY KEY(`_id`))",
         "fields": [
           {
             "fieldPath": "_id",
@@ -16,13 +16,13 @@
           },
           {
             "fieldPath": "contactId",
-            "columnName": "ContactId",
+            "columnName": "contactId",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "stagingId",
-            "columnName": "StagingId",
+            "columnName": "stagingId",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -38,7 +38,7 @@
       },
       {
         "tableName": "Account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`accountId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Status` INTEGER NOT NULL, `UserId` TEXT, `Context` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`accountId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `status` INTEGER NOT NULL, `userId` TEXT, `context` TEXT)",
         "fields": [
           {
             "fieldPath": "accountId",
@@ -48,19 +48,19 @@
           },
           {
             "fieldPath": "status",
-            "columnName": "Status",
+            "columnName": "status",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "userID",
-            "columnName": "UserId",
+            "fieldPath": "userId",
+            "columnName": "userId",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "context",
-            "columnName": "Context",
+            "columnName": "context",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -75,8 +75,8 @@
         "foreignKeys": []
       },
       {
-        "tableName": "ExtensionTable",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`extensionId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Context` TEXT NOT NULL, `PhoneContactId` INTEGER NOT NULL)",
+        "tableName": "Extensions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`extensionId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `context` TEXT NOT NULL, `phoneContactId` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "extensionId",
@@ -86,13 +86,13 @@
           },
           {
             "fieldPath": "context",
-            "columnName": "Context",
+            "columnName": "context",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "phoneContactId",
-            "columnName": "PhoneContactId",
+            "columnName": "phoneContactId",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -109,7 +109,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fe1f809789af61e7866fb2b15154045e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5534e17ce2023b42df3b43d1b89c443b\")"
     ]
   }
 }

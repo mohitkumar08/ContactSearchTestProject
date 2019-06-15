@@ -8,15 +8,31 @@
     tools:context=".view.MainActivity">
 
     <Spinner
+
         android:id="@+id/spinner"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:backgroundTint="#d11f08"
         android:padding="5dp" />
 
-    <ListView
-        android:id="@+id/list_view"
+    <FrameLayout
+        android:layout_marginTop="@dimen/margin_10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/search_result_layout"
+            android:visibility="gone"
+            android:id="@+id/record_layout"
+
+            />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_no_record"
+            style="@style/CommonTextViewTheme"
+            android:text="@string/no_record"
+            android:textSize="@dimen/text_size_18" />
+
+    </FrameLayout>
+
 
 </LinearLayout>

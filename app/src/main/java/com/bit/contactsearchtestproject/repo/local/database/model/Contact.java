@@ -12,10 +12,10 @@ public class Contact {
     @ColumnInfo
     private int _id;
 
-    @ColumnInfo(name = "ContactId")
+    @ColumnInfo(name = "contactId")
     private String contactId;
 
-    @ColumnInfo(name = "StagingId")
+    @ColumnInfo(name = "stagingId")
     private String stagingId;
 
     public Contact(final int _id, final String contactId, final String stagingId) {

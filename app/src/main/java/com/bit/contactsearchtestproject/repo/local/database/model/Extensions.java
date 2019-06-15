@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "ExtensionTable")
+@Entity(tableName = "Extensions")
 public class Extensions {
 
     @PrimaryKey(autoGenerate = true)
@@ -13,10 +13,10 @@ public class Extensions {
     public long extensionId;
 
     @NonNull
-    @ColumnInfo(name = "Context")
+    @ColumnInfo(name = "context")
     private String context;
 
-    @ColumnInfo(name = "PhoneContactId")
+    @ColumnInfo(name = "phoneContactId")
     private int phoneContactId;
 
     public Extensions(final String context, final int phoneContactId) {

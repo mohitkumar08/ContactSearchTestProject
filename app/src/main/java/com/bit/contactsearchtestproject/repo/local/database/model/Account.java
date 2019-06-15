@@ -11,18 +11,21 @@ public class Account {
     @ColumnInfo
     public long accountId;
 
-    @ColumnInfo(name = "Status")
+    @ColumnInfo(name = "status")
     private int status;
 
-    @ColumnInfo(name = "UserId")
-    private String userID;
-    @ColumnInfo(name = "Context")
+    @ColumnInfo(name = "userId")
+    private String userId;
+    @ColumnInfo(name = "context")
     private String context;
 
+    public Account() {
+
+    }
 
     public Account(final int status, final String userID, final String context) {
         this.status = status;
-        this.userID = userID;
+        this.userId= userID;
         this.context = context;
     }
 
@@ -34,12 +37,12 @@ public class Account {
         this.status = status;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserID(final String userID) {
-        this.userID = userID;
+    public void setUserId(final String userId) {
+        this.userId = userId;
     }
 
     public String getContext() {

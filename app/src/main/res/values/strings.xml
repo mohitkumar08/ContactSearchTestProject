@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ContactSearchTestProject</string>
+    <string name="status">Status</string>
+    <string name="user_id">UserId</string>
+    <string name="stagingId">StagingId</string>
+    <string name="context">Context</string>
+    <string name="no_record">No Record</string>
+
+
 </resources>

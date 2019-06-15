@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            style="@style/CommonTextViewTheme"
+            android:text="@string/stagingId"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            style="@style/CommonTextViewTheme"
+            android:text="@string/context"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            style="@style/CommonTextViewTheme"
+            android:text="@string/status"
+            android:textSize="@dimen/text_size_18" />
+
+        <TextView
+            style="@style/CommonTextViewTheme"
+            android:text="@string/user_id"
+            android:textSize="@dimen/text_size_18" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+
+            android:id="@+id/tv_staging"
+            style="@style/CommonTextViewTheme"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_context"
+            style="@style/CommonTextViewTheme"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            style="@style/CommonTextViewTheme"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_user_id"
+            style="@style/CommonTextViewTheme"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
