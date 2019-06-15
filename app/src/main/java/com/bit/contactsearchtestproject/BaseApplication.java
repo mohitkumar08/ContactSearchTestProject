@@ -11,6 +11,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         appDatabaseContext = AppDatabase.getInstance(this);
+        Utility.insertDummyData();
     }
 
     public static AppDatabase getAppDatabaseContext() {

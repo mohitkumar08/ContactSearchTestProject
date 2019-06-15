@@ -3,10 +3,12 @@ package com.bit.contactsearchtestproject.repo.local.database.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-@Entity(tableName = "PokemonTable")
+@Entity(tableName = "Contact")
 public class Contact {
-    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    @PrimaryKey
     @ColumnInfo
     private int _id;
 
@@ -15,6 +17,12 @@ public class Contact {
 
     @ColumnInfo(name = "StagingId")
     private String stagingId;
+
+    public Contact(final int _id, final String contactId, final String stagingId) {
+        this._id = _id;
+        this.contactId = contactId;
+        this.stagingId = stagingId;
+    }
 
     public int get_id() {
         return _id;

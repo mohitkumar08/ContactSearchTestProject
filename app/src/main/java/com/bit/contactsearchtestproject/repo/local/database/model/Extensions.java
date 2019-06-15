@@ -2,22 +2,27 @@ package com.bit.contactsearchtestproject.repo.local.database.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-@Entity(tableName = "ExtensionTable", foreignKeys = @ForeignKey(entity = Contact.class,
-        parentColumns = "_id",
-        childColumns = "PhoneContactId"))
+@Entity(tableName = "ExtensionTable")
 public class Extensions {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
-    private int _id;
+    public long extensionId;
+
+    @NonNull
     @ColumnInfo(name = "Context")
     private String context;
 
     @ColumnInfo(name = "PhoneContactId")
-    private String phoneContactId;
+    private int phoneContactId;
+
+    public Extensions(final String context, final int phoneContactId) {
+        this.context = context;
+        this.phoneContactId = phoneContactId;
+    }
 
     public String getContext() {
         return context;
@@ -27,11 +32,12 @@ public class Extensions {
         this.context = context;
     }
 
-    public String getPhoneContactId() {
+    public int getPhoneContactId() {
         return phoneContactId;
     }
 
-    public void setPhoneContactId(final String phoneContactId) {
+    public void setPhoneContactId(final int phoneContactId) {
         this.phoneContactId = phoneContactId;
     }
+
 }

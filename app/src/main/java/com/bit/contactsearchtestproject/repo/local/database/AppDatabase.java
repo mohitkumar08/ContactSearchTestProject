@@ -7,12 +7,12 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.bit.contactsearchtestproject.repo.local.database.model.Accounts;
+import com.bit.contactsearchtestproject.repo.local.database.model.Account;
 import com.bit.contactsearchtestproject.repo.local.database.model.Contact;
 import com.bit.contactsearchtestproject.repo.local.database.model.Extensions;
 
 
-@Database(entities = {Contact.class,Accounts.class,Extensions.class}, version = 1)
+@Database(entities = {Contact.class,Account.class,Extensions.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "AppDb";
     private static volatile AppDatabase sInstance;
@@ -41,6 +41,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
 
     public abstract ContactDao getContactDao();
+    public abstract AccountDao getAccountDao();
+    public abstract ExtensionsDao getExtensionDao();
 
 
 }
